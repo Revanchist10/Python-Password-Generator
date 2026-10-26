@@ -48,8 +48,8 @@ tk.Label(root, text = "Random Password Generator", font = 'arial 15 bold').pack(
 tk.Label(root, text = "Pick a Password strength", font = 'arial 10 bold').place(x= 60, y= 25)
 tk.Button(root, text = 'Generate', font = 'arial 10', command= generate, ).place(x=160, y= 220)
 #buttons for choosing password strength
-radio_low = ttk.Radiobutton(root, text = "Low", variable = var, value = 1).place(x=25, y=75)
-radio_medium = ttk.Radiobutton(root, text = "Medium", variable = var, value = 0).place(x=25, y=125)
-radio_strong = ttk.Radiobutton(root, text = "Strong", variable = var, value = 3).place(x=25, y=175)
+radio_low = ttk.Radiobutton(root, text = "Basic", variable = var, value = 1).place(x=25, y=75)
+radio_medium = ttk.Radiobutton(root, text = "More Secure", variable = var, value = 0).place(x=25, y=125)
+radio_strong = ttk.Radiobutton(root, text = "Most Secure", variable = var, value = 3).place(x=25, y=175)
 
 tk.mainloop()
