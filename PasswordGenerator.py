@@ -13,7 +13,6 @@ lower = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 medium = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
 strong = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()+=-[{]}"
 password = [""]
-password_low = ""
 last_element = password[-1]
 #functions
 def generate():
@@ -22,21 +21,20 @@ def generate():
     tk.Label(root, text = "                                             p", font = 'arial 10 bold').place(x=150, y = 150)
     #if var is 1 do password_low
     if var.get()==1:  
-        global lower
-        global password_low
+        lower
         for i in range (0,length):
             password = "".join(random.choice(lower) for i in range(length)) 
         tk.Label(root, text = password, font = 'arial 10 bold').place(x=150, y = 150)
         password_low = ""
     #if var is 0 do medium
     elif var.get()==0:
-        global medium
+        medium
         for i in range (0,length):
                 password = "".join(random.choice(medium) for i in range(length))
         tk.Label(root, text = password, font = 'arial 10 bold').place(x=150, y = 150)
     #if var is 3 do strong
     elif var.get()==3:
-            global strong
+            strong
             for i in range (0,length):
                 password = "".join(random.choice(strong) for i in range(length))
             tk.Label(root, text = password, font = 'arial 10 bold').place(x=150, y = 150)
