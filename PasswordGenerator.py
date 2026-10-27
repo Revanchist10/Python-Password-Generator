@@ -9,7 +9,7 @@ var1 = tk.IntVar()
 
 length = 12
 
-lower = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+weak = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 medium = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
 strong = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()+=-[{]}"
 password = [""]
@@ -21,22 +21,22 @@ def generate():
     tk.Label(root, text = "                                             p", font = 'arial 10 bold').place(x=150, y = 150)
     #if var is 1 do password_low
     if var.get()==1:  
-        lower
+        weak
         for i in range (0,length):
-            password = "".join(random.choice(lower) for i in range(length)) 
+            password = "".join(random.choice(weak) for i in range(length)) #choose 12 random characters in the "weak" list and join them together
         tk.Label(root, text = password, font = 'arial 10 bold').place(x=150, y = 150)
         password_low = ""
     #if var is 0 do medium
     elif var.get()==0:
         medium
         for i in range (0,length):
-                password = "".join(random.choice(medium) for i in range(length))
+                password = "".join(random.choice(medium) for i in range(length)) #choose 12 random characters in the "medium" list and join them together
         tk.Label(root, text = password, font = 'arial 10 bold').place(x=150, y = 150)
     #if var is 3 do strong
     elif var.get()==3:
             strong
             for i in range (0,length):
-                password = "".join(random.choice(strong) for i in range(length))
+                password = "".join(random.choice(strong) for i in range(length)) #choose 12 random characters in the "strong" list and join them together
             tk.Label(root, text = password, font = 'arial 10 bold').place(x=150, y = 150)
 #create tkinter window
 root.title("Random Password Generator")
