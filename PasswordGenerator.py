@@ -7,6 +7,7 @@ import string
 root = tk.Tk()
 var = tk.IntVar()
 
+#create the password label and place it for future updates
 password_display =  tk.Label(root, text = "", font = 'arial 10 bold')
 password_display.place(x=150, y = 150)
 length = 12
@@ -15,23 +16,24 @@ weak = string.ascii_letters
 medium = string.ascii_letters + string.digits
 custom_symbols = "!@#$%&"
 strong = string.ascii_letters + string.digits + custom_symbols
-password = [""]
+password = ""
+
 #functions
 def generate():
     global password
     password = ""    
-    #if var is 1 do weak
+    #if var is 1 use weak charPool
     if var.get()==1:  
-        password = "".join(random.choice(weak) for i in range(length)) #choose 12 random characters in the "weak" list and join them together
-        password_display.config(text = password)
-    #if var is 0 do medium
+        char_Pool = weak
+    #if var is 0 do medium charPool
     elif var.get()==0:
-        password = "".join(random.choice(medium) for i in range(length)) #choose 12 random characters in the "medium" list and join them together
-        password_display.config(text = password)
-    #if var is 3 do strong
+        char_Pool = medium
+    #if var is 3 do strong charPool
     elif var.get()==2:
-        password = "".join(random.choice(strong) for i in range(length)) #choose 12 random characters in the "strong" list and join them together
-        password_display.config(text = password)
+        char_Pool = strong
+    #once the character pool is selected, generate the password
+    password = "".join(random.choice(char_Pool) for i in range(length)) #choose 12 random characters in the char_Pool and join them into the password
+    password_display.config(text = password)
 #create tkinter window
 root.title("Random Password Generator")
 root.geometry('300x300')
